@@ -52,7 +52,7 @@ const currentText = computed(() => {
 let timer = 0
 const startTimer = () => {
     // 如果目前是停止的且有事項
-    if (status.value === STATUS.STOP && items.value.length > 0) {
+    if (status.value === STATUS.STOP && items.value.length > 0 && current.value.length === 0) {
         setCurrentItem()
     }
 
