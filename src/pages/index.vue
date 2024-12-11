@@ -95,3 +95,7 @@ const currentTime = computed(() => {
     return m + ':' + s
 })
 </script>
+<route lang="yaml">
+    meta:
+        title: 倒數
+</route>
