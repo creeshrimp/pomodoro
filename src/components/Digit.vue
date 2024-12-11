@@ -26,13 +26,13 @@ defineProps({
     data: {
         type: String,
         default() {
-            return ''
+            return ""
         },
     },
     color: {
         type: String,
         default() {
-            return 'white'
+            return "white"
         },
     }
 })
