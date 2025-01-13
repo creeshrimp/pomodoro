@@ -1,6 +1,9 @@
 <template>
     <v-app>
         <v-app-bar>
+            <template #prepend>
+                <v-img src="/public/favicon-96x96.png" width="24" class="ml-3"></v-img>
+            </template>
             <v-container class="d-flex align-center">
                 <v-app-bar-title>番茄鐘</v-app-bar-title>
                 <v-btn prepend-icon="mdi-home" to="/">首頁</v-btn>

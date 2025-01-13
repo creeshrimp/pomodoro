@@ -5,9 +5,16 @@
                 <h1 class="text-center">未完成</h1>
             </v-col>
             <v-col cols="12">
-                <v-text-field ref="inputTextField" v-model="input" append-icon="mdi-plus" label="新增事項" clearable
-                    :rules="[rules.required, rules.length]" @keydown.enter="onInputSubmit"
-                    @click:append="onInputSubmit">
+                <v-text-field
+                    ref="inputTextField"
+                    v-model="input"
+                    append-icon="mdi-plus"
+                    label="新增事項"
+                    clearable
+                    :rules="[rules.required, rules.length]"
+                    @keydown.enter="onInputSubmit"
+                    @click:append="onInputSubmit"
+                >
                 </v-text-field>
                 <!-- table -->
                 <v-table>
@@ -20,15 +27,23 @@
                     <tbody>
                         <tr v-for="(item, i) in items" :key="item.id">
                             <td>
-                                <v-text-field v-show="item.edit" ref="editTextField" v-model="item.model"
-                                    :rules="[rules.required, rules.length]" autofocus
-                                    @keydown.enter="onEditSubmit(item.id, i)">
+                                <v-text-field
+                                    v-show="item.edit"
+                                    ref="editTextField"
+                                    v-model="item.model"
+                                    :rules="[rules.required, rules.length]"
+                                    autofocus
+                                    @keydown.enter="onEditSubmit(item.id, i)"
+                                >
                                 </v-text-field>
                                 <span v-show="!item.edit">{{ item.text }}</span>
                             </td>
                             <td>
                                 <template v-if="item.edit">
-                                    <v-btn icon="mdi-check" @click="onEditSubmit(item.id, i)"></v-btn>
+                                    <v-btn
+                                        icon="mdi-check"
+                                        @click="onEditSubmit(item.id, i)"
+                                    ></v-btn>
                                     <v-btn icon="mdi-undo" @click="cancelEditItem(item.id)"></v-btn>
                                 </template>
                                 <template v-else>
@@ -68,7 +83,7 @@
     </v-container>
 </template>
 <script setup>
-import { useListStore } from "@/stores/list"
+import { useListStore } from '@/stores/list'
 import { storeToRefs } from 'pinia'
 import { ref } from 'vue'
 
@@ -106,6 +121,6 @@ const onEditSubmit = (id, i) => {
 </script>
 
 <route lang="yaml">
-    meta:
-        title: 清單
+meta:
+    title: 清單
 </route>

@@ -1,6 +1,6 @@
 <template>
     <v-container>
-        <v-row>
+        <v-row class="text-center">
             <v-col cols="12">
                 <h1>目前事項 {{ currentText }}</h1>
             </v-col>
@@ -8,16 +8,23 @@
                 <digit v-for="(data, i) in currentTime" :key="i" :data="data" color="white"></digit>
             </v-col>
             <v-col cols="12">
-                <v-btn icon="mdi-play" :disabled="status.COUNTING || (current.length === 0 && items.length === 0)"
-                    @click="startTimer"></v-btn>
-                <v-btn icon="mdi-pause" :disabled="status !== STATUS.COUNTING" @click="pauseTimer"></v-btn>
-                <v-btn icon="mdi-skip-next" :disabled="current.length === 0" @click="finishTimer"></v-btn>
+                <v-btn
+                    icon="mdi-play"
+                    :disabled="status.COUNTING || (current.length === 0 && items.length === 0)"
+                    @click="startTimer"
+                >
+                </v-btn>
+                <v-btn icon="mdi-pause" :disabled="status !== STATUS.COUNTING" @click="pauseTimer">
+                </v-btn>
+                <v-btn icon="mdi-skip-next" :disabled="current.length === 0" @click="finishTimer">
+                </v-btn>
             </v-col>
         </v-row>
     </v-container>
 </template>
 <script setup>
 import digit from '@/components/Digit.vue'
+// import digit from '@/components/Digit.vue'
 
 import { ref, computed } from 'vue'
 import { useListStore } from '@/stores/list'
@@ -27,7 +34,7 @@ import { storeToRefs } from 'pinia'
 const STATUS = {
     STOP: 0,
     COUNTING: 1,
-    PAUSE: 2
+    PAUSE: 2,
 }
 
 const status = ref(STATUS.STOP)
@@ -66,7 +73,6 @@ const startTimer = () => {
     }, 1000)
 }
 
-
 const finishTimer = () => {
     clearInterval(timer)
     status.value = STATUS.STOP
@@ -96,6 +102,6 @@ const currentTime = computed(() => {
 })
 </script>
 <route lang="yaml">
-    meta:
-        title: 倒數
+meta:
+    title: 倒數
 </route>
